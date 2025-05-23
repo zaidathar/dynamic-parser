@@ -6,29 +6,17 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.zaidathar</groupId>
 	<artifactId>dynamic-parser</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>dynamic-parser</name>
 	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -56,17 +44,27 @@
 			<artifactId>jackson-dataformat-yaml</artifactId>
 			<version>2.19.0</version>
 		</dependency>
-		<!-- Add this in your pom.xml -->
 		<dependency>
-			<groupId>org.graalvm.sdk</groupId>
-			<artifactId>graal-sdk</artifactId>
+			<groupId>org.graalvm.polyglot</groupId>
+			<artifactId>polyglot</artifactId>
 			<version>24.2.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.graalvm.js</groupId>
+			<groupId>org.graalvm.polyglot</groupId>
 			<artifactId>js</artifactId>
 			<version>24.2.1</version>
+			<type>pom</type>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.graalvm.sdk</groupId>-->
+<!--			<artifactId>graal-sdk</artifactId>-->
+<!--			<version>24.2.1</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.graalvm.js</groupId>-->
+<!--			<artifactId>js</artifactId>-->
+<!--			<version>24.2.1</version>-->
+<!--		</dependency>-->
 
 	</dependencies>
 
