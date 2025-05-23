@@ -5,9 +5,7 @@ target/
 !**/src/test/**/target/
 
 .gitattributes
-.cmd*
-mvnw*
-.mvn*
+
 
 ### STS ###
 .apt_generated
