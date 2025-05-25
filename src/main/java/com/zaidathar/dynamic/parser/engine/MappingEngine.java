@@ -22,7 +22,7 @@ public class MappingEngine {
             bindings.put(field.getName(), field.get(source));
         }
 
-        for (Map.Entry<String, String> entry : rule.fields.entrySet()) {
+        for (Map.Entry<String, String> entry : rule.getFields().entrySet()) {
             String targetFieldName = entry.getKey();
             String expression = entry.getValue();
 
