@@ -71,8 +71,7 @@ POST /api/parse
   "userAge": 32,
   "profilePic": "https://someurl.com/123.jpeg",
   "contact": "090910",
-  "tempInCelsius": 26.85,
-  "ageInDays": 11680
+  "ageInMonths": 11680
 }
 
 ```
