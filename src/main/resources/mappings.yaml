@@ -2,6 +2,6 @@ UserData->UserProfile:
   fields:
     fullName: "transform:fullNameWithPrefix"
     userAge: "age"
-    ageInMonths: "transform:ageInDays"
+    ageInMonths: "transform:ageInMonths"
     profilePic: "profile"
     contact: "contact"
