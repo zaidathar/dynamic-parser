@@ -55,16 +55,11 @@
 			<version>24.2.1</version>
 			<type>pom</type>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.graalvm.sdk</groupId>-->
-<!--			<artifactId>graal-sdk</artifactId>-->
-<!--			<version>24.2.1</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.graalvm.js</groupId>-->
-<!--			<artifactId>js</artifactId>-->
-<!--			<version>24.2.1</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<version>5.4.4</version>
+		</dependency>
 
 	</dependencies>
 
