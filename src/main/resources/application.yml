@@ -13,6 +13,12 @@ app:
       access-token: ${GITHUB_CONFIG_PAT}
     webhook:
       secret: ${GITHUB_WEBHOOK_TOKEN}
+  security:
+    webhook:
+      rate-limit:
+        minute: 1.0
+        hour: 5.0
+        day: 20.0
 
 logging:
   level:

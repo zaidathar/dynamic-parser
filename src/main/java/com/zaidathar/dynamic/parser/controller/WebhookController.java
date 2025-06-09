@@ -44,8 +44,6 @@ public class WebhookController {
             HttpServletRequest request) {
 
         log.info("Received GitHub webhook event: {}", githubEvent);
-        log.info("Signature : {}",signature);
-        log.info("Payload : {}",payload);
         try {
             if (!verifySignature(payload, signature, webhookSecret)) {
                 log.warn("Webhook signature mismatch. Request denied.");
