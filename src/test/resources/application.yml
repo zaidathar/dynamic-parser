@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: dynamic-parser
+
+app:
+  config:
+    github:
+      enabled: true
+      repo-owner: zaidathar
+      repo-name: config-manager
+      file-path: dynamic-parser-config.yml
+      branch: main
+      access-token: abc
+    webhook:
+      secret: mySuperSecureSecretForTests
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG

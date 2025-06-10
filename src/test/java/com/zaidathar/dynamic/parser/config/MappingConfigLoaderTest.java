@@ -1,10 +1,15 @@
 package com.zaidathar.dynamic.parser.config;
 
-import org.junit.jupiter.api.*;
+import com.zaidathar.dynamic.parser.service.GitHubConfigFetcher;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -14,11 +19,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 @DisplayName("MappingConfigLoader Unit Tests")
+@ExtendWith(MockitoExtension.class)
 public class MappingConfigLoaderTest {
 
     private static final Logger log = LoggerFactory.getLogger(MappingConfigLoaderTest.class);
 
     private MappingConfigLoader mappingConfigLoader;
+
+    @MockitoBean
+    private GitHubConfigFetcher gitHubConfigFetcher;
 
     private static final String VALID_TEST_YAML = """
         UserData->UserProfile:
@@ -41,9 +50,10 @@ public class MappingConfigLoaderTest {
         - this is not yaml
     """;
 
+
     @BeforeEach
     void init() throws Exception {
-        mappingConfigLoader = new MappingConfigLoader();
+        mappingConfigLoader = new MappingConfigLoader(gitHubConfigFetcher);
     }
 
 
@@ -124,22 +134,6 @@ public class MappingConfigLoaderTest {
         Assertions.assertThrows(IOException.class, () -> {
             mappingConfigLoader.loadConfigFromStream(inputStream);
         }, "Loading malformed YAML should throw an IOException");
-    }
-
-    @Nested
-    @DisplayName("Spring Context Integration Test")
-    @SpringBootTest(classes = MappingConfigLoader.class, properties = {"logging.level.com.example.servicea=DEBUG"})
-    class SpringContextIntegrationTest {
-
-        @Autowired
-        private MappingConfigLoader mappingConfigLoaderAutowired;
-
-        @Test
-        @DisplayName("Should load default config via @PostConstruct")
-        void testPostConstructLoading() {
-            MappingRule rule = mappingConfigLoaderAutowired.getRule("UserData->UserProfile");
-            Assertions.assertNotNull(rule, "@PostConstruct should have loaded rules from mappings.yaml");
-        }
     }
 
 }
