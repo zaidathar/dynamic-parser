@@ -6,21 +6,30 @@
 [![codecov](https://codecov.io/gh/zaidathar/dynamic-parser/branch/main/graph/badge.svg)](https://codecov.io/gh/zaidathar/dynamic-parser)
 
 
-## Overview
+## 🚀 Overview
 
-A Spring Boot based dynamic DTO parser service that maps data from one DTO to another using YAML-driven configurations. Supports transformation logic using JavaScript expressions and registered Java transformation methods.
+The `dynamic-parser` is a robust Spring Boot microservice designed to provide highly flexible and dynamic data transformation capabilities. It solves the common problem of rigid data mapping by externalizing transformation rules into YAML configurations. This allows for real-time adaptation to changing data structures and business logic without requiring application downtime or redeployment.
 
-## Features
+Leveraging a sophisticated hot-reloading mechanism, `dynamic-parser` can update its mapping rules on the fly by listening to changes in a remote GitHub repository via secure webhooks, enhancing operational efficiency and accelerating the iteration cycle for data integration tasks.
 
-- Config-driven DTO to DTO mapping (YAML based)
-- No redeployment needed for mapping changes
-- JavaScript expression support
-- Custom transformation functions using Java
-- REST API for dynamic parsing
-- Unit-tested with JUnit
-- Dockerized for deployment
-- GitHub Actions for CI/CD and SonarQube scan
+## ✨ Features
 
+* **Config-Driven DTO Mapping (YAML-based):** Define complex data transformations using intuitive YAML syntax.
+* **Zero-Downtime Config Hot Reload:**
+    * Automatically refreshes mapping configurations from a remote Git repository (e.g., GitHub).
+    * Triggered via secure webhook calls from GitHub Actions on config file changes.
+    * Includes **webhook signature verification** for enhanced security.
+    * Implements **IP-based Rate Limiting for GitHub Webhooks**: Ensures robust operation by limiting incoming webhook requests from GitHub's IPs to `1 request/minute`, `5 requests/hour`, and `20 requests/day`.
+* **Advanced Transformation Logic:**
+    * **JavaScript Expression Support:** Embed JavaScript expressions directly within YAML for dynamic data manipulation.
+    * **Custom Java Transformation Functions:** Register custom Java methods to handle complex, reusable transformation logic.
+* **REST API for Dynamic Parsing:** A simple and intuitive REST endpoint for submitting data for transformation.
+* **Robustness & Quality:**
+    * Comprehensive Unit Tests with JUnit.
+    * Dockerized for seamless deployment and portability.
+    * Integrated GitHub Actions for CI/CD, including automated builds, tests, and SonarQube scans.
+
+---
 
 ## Running application 
 
